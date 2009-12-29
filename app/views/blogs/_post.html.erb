@@ -1,0 +1,34 @@
+<%category=post.category.category_name%>
+<div style="border:blue;margin:10px">
+ <%if category=='text'%>
+
+  <%=h post.content%>
+
+<%end%>
+  <%if category=='picture'%>
+  <%=image_tag post.content%><br/>
+   description: <%=h post.description%>
+
+  <%end%>
+<%=h post.description%>
+  <%if category=='music'%>
+    <%=link_to 'music'%><br/>
+description:  <%=h post.description%>
+  <%end%>
+    <%if category=='video'%>
+    <%=link_to 'video'%><br/>
+ description: <%=h post.description%>
+  <%end%>
+ <%id="reply_post_"+post.id.to_s%>
+ <div style="display:none" id=<%='"reply_post_'+post.id.to_s+'"'%>>
+ <%remote_form_for Reply.new,:url=>post_replies_path(post),:html=>{:method=>'post'} do |f|%>
+ <%=f.text_field :content%>
+ <%=f.submit 'ok'%>
+ <%end%>
+ </div>
+ <%=link_to_function 'reply' do |page|
+   page.visual_effect :toggle_slide,id
+                              end%>
+  <%=link_to 'replies',post_replies_path(post)%>
+
+</div>

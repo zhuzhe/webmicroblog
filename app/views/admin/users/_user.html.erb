@@ -1,0 +1,19 @@
+
+
+
+
+
+
+<ul>
+
+      <li><%= user.id %></li>
+      <li><%=h user.email %></li>
+      <li><%=h user.nick_name %></li>
+      <li><%=h user.active %></li>
+      <%if user.active%>
+        <li><%=button_to_remote 'disable this user !',:url=>{:action=>'change_state',:id=>user}%><li>
+          <%else%>
+        <li>  <%=button_to_remote 'active this user !',:url=>{:action=>'change_state',:id=>user}%><li>
+        <%end%>
+ 
+</ul>

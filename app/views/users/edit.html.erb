@@ -1,0 +1,28 @@
+<h1>Editing user</h1>
+
+<% form_for(@user,:html => {:multipart => true} ) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :nick_name %><br />
+    <%= f.text_field :nick_name %>
+  </p>
+  
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :picture %><%=image_tag @user.picture,:size=>'60x70'%><br />
+    <%= f.file_field :picture %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user %> |

@@ -1,0 +1,11 @@
+
+
+
+
+<%=button_to 'new admin',:action=>'new'%>
+<%=button_to 'your acount',{:action=>'edit',:id=>3}%>
+  <% for user in @common_users %>
+<div id=<%= '"'+user.id.to_s+'"' %>>
+  <%=render :partial=>'user',:object=>user%>
+</div>
+  <% end %>

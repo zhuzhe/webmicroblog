@@ -1,0 +1,18 @@
+<p>
+  <b>Content:</b>
+  <%=h @reply.content %>
+</p>
+
+<p>
+  <b>Post:</b>
+  <%=h @reply.post_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @reply.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_reply_path(@reply) %> |
+<%= link_to 'Back', replies_path %>

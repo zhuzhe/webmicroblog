@@ -1,0 +1,43 @@
+
+
+
+<div id="create text">
+  <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
+  <%=f.text_field :content%>
+  <%=f.hidden_field :category_id,:value=>Category.first(:conditions=>{:category_name=>'text'}).id%>
+  <%=f.submit 'create'%>
+  <%end%>
+</div>
+<div id="create picture">
+  <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
+  <%=f.text_field :content%>
+  <%=f.text_field :description%>
+  <%=f.hidden_field :category_id,:value=>Category.first(:conditions=>{:category_name=>'picture'}).id%>
+  <%=f.submit 'create'%>
+  <%end%>
+</div>
+<div id="create music">
+  <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
+  <%=f.text_field :content%>
+  <%=f.text_field :description%>
+  <%=f.hidden_field :category_id,:value=>Category.first(:conditions=>{:category_name=>'music'}).id%>
+  <%=f.submit 'create'%>
+  <%end%>
+</div>
+<div id="create video">
+  <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
+  <%=f.text_field :content%>
+  <%=f.text_field :description%>
+  <%=f.hidden_field :category_id,:value=>Category.first(:conditions=>{:category_name=>'video'}).id%>
+  <%=f.submit 'create'%>
+  <%end%>
+</div>
+
+
+<div id="posts">
+  <%for post in @posts%>
+ 
+<%=render :partial=>'post',:object=>post%>
+  
+  <%end%>
+</div>
