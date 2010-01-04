@@ -2,7 +2,7 @@ require "digest/sha1"
 
 
 class User < ActiveRecord::Base
-  acts_as_solr
+  
   belongs_to :group
   has_many :posts,:dependent=>:destroy
   has_and_belongs_to_many :followers,:class_name=>'User',:foreign_key=>'master_id',:join_table=>'follows',:association_foreign_key=>'follower_id'
