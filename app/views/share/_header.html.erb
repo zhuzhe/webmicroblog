@@ -2,6 +2,12 @@
 
 
 <div id="header">
+ 
+
+ 
+ 
+  <%=link_to 'master blog',master_blogs_path%>
   <%=link_to 'your blog',:controller=>'blogs'%>
   <%=link_to 'your account',user_path(session[:user_id])%>
+  <%=link_to 'log out',session_path,:method=>'delete'%>
 </div>

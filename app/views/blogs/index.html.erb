@@ -1,6 +1,19 @@
-
-
-
+ <%=link_to_function 'find blog' do |page|
+          page.visual_effect :toggle_slide,:search
+  end
+  %>
+<div id="search" style="display:none">
+  <%form_remote_tag :url=>search_blogs_path  do%>
+    <%=text_field_tag :key%>
+    <%=submit_tag 'search'%>
+  <%end%>
+</div>
+ <div id="result" style="display:none">
+  <%=link_to_function 'closed' do |page|
+          page.visual_effect :slide_up,:result
+  end%>
+  </div>
+text:
 <div id="create text">
   <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
   <%=f.text_field :content%>
@@ -8,6 +21,7 @@
   <%=f.submit 'create'%>
   <%end%>
 </div>
+picture:
 <div id="create picture">
   <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
   <%=f.text_field :content%>
@@ -16,6 +30,7 @@
   <%=f.submit 'create'%>
   <%end%>
 </div>
+music:
 <div id="create music">
   <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
   <%=f.text_field :content%>
@@ -24,6 +39,7 @@
   <%=f.submit 'create'%>
   <%end%>
 </div>
+video:
 <div id="create video">
   <%remote_form_for :post,:url=>user_posts_url(session[:user_id]),:html=>{:method=>'post'} do |f|%>
   <%=f.text_field :content%>
@@ -32,7 +48,8 @@
   <%=f.submit 'create'%>
   <%end%>
 </div>
-
+<div id="test">
+</div>
 
 <div id="posts">
   <%for post in @posts%>

@@ -19,6 +19,8 @@ description:  <%=h post.description%>
     <%=link_to 'video'%><br/>
  description: <%=h post.description%>
   <%end%>
+
+
  <%id="reply_post_"+post.id.to_s%>
  <div style="display:none" id=<%='"reply_post_'+post.id.to_s+'"'%>>
  <%remote_form_for Reply.new,:url=>post_replies_path(post),:html=>{:method=>'post'} do |f|%>

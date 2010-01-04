@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_filter :require_admin
   def index
     @common_users=Group.first(:conditions=>{:group_name=>'common'}).users
 

@@ -1,3 +1,4 @@
+<%=render :partial=>'share/header'%>
 <p>
   <b>Email:</b>
   <%=h @user.email %>
@@ -10,8 +11,16 @@
 <p>
   <b>Picture </b>
   <%=image_tag @user.picture ,:size=>'60x70'%>
-</p>
+</p>  
 
+<p>
+  <b>Blog:</b>
+  <%=h @user.blog_name %>
+</p>
+<p>
+  <b>Blog Description:</b>
+  <%=h @user.blog_description %>
+</p>
 
 
 

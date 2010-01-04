@@ -9,12 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091229073057) do
+ActiveRecord::Schema.define(:version => 20100104074321) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "follows", :id => false, :force => true do |t|
+    t.integer "master_id"
+    t.integer "follower_id"
   end
 
   create_table "groups", :force => true do |t|
@@ -43,12 +48,15 @@ ActiveRecord::Schema.define(:version => 20091229073057) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "nick_name"
-    t.string   "password"
+    t.string   "hashed_password"
     t.string   "picture"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.string   "blog_name"
+    t.string   "blog_description"
+    t.string   "salt"
   end
 
 end

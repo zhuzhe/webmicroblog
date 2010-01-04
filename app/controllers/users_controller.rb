@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  skip_before_filter :require_login,:only=>[:new]
   def index
     @users = User.all
 
@@ -45,11 +46,12 @@ class UsersController < ApplicationController
     upload
     respond_to do |format|
       if @user.save
-        flash[:notice] = 'User was successfully created.'
-        format.html { redirect_to(@user) }
+        flash[:notice] = 'You already become a member,please login'
+        format.html { redirect_to(new_session_path) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
+        flash[:notice]='regist fail,please try again'
+        format.html {render 'new' }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
