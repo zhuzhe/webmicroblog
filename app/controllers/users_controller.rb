@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-  skip_before_filter :require_login,:only=>[:new]
+#  skip_before_filter :require_login,:only=>[:new]
   def index
     @users = User.all
 
